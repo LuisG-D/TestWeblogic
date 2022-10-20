@@ -2,19 +2,27 @@ package com.todo;
 
 
 
-import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
+@ToString
 @Entity
+@Builder
+@Table(name="task")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tarea {
@@ -24,6 +32,14 @@ public class Tarea {
     private Long id;
     private String name;
     private boolean complete;
+    
+   public Tarea list() {
+       return new Tarea(id,name,complete);
+   }
+  
+    
+    
+   
     
      
 }

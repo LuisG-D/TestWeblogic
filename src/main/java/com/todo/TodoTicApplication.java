@@ -10,7 +10,6 @@ public class TodoTicApplication {
 		SpringApplication.run(TodoTicApplication.class, args);
 		
 		
-		System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
 	}
 
 }
