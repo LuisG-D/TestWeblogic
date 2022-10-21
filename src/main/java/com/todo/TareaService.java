@@ -1,6 +1,7 @@
 package com.todo;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +32,13 @@ public class TareaService {
     }
     
     public ResponseEntity<Tarea> addNewTask(@RequestBody Tarea tarea){
-	Tarea task = Tarea.builder().complete(false).name("Test").build();
+		Optional<Tarea>task = repo.findByName(tarea.getName());
+		if(task.isPresent()) {
+		    return new ResponseEntity("Task already exist", HttpStatus.BAD_REQUEST);
+		}
+			
 	
-	return ResponseEntity.ok(repo.save(task));
-	
-	
+	return ResponseEntity.ok(repo.save(tarea));
 	
     }
 

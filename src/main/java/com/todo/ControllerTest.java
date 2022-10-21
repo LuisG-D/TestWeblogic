@@ -22,7 +22,11 @@ public class ControllerTest {
     @PostMapping("/add")
     public ResponseEntity<Tarea> addTask(@RequestBody Tarea tarea)
     {
-	return service.addNewTask(tarea);
+	return this.service.addNewTask(tarea);
+    }
+    @GetMapping("/test")
+    public String agetAll(){
+	return "Probando...1..2..3..";
     }
 
 }
